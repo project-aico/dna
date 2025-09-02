@@ -1,0 +1,7 @@
+binary: "0100100001100101011011000110110001101111"
+dnadsl_version: "1.0"
+metadata:
+  author: Sym
+  encoding: utf8→bin→dna(4base2byte)
+sequence: CAGACGCCCGTACGTACGTT
+text_utf8: Hello
