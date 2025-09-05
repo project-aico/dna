@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dnadsl"
-description = "Encode/decode images using Base64 or shuffle/recover the pixels of images."
+description = "DNA: A domain-specific language (transcription between UTF-8 and binary) based on YAML."
 requires-python = ">=3.10"
 license = { text = "GNU GPLv3" }
 authors = [{ name = "Zhan Ziyuan", email = "ziyuanzhan@mail.nankai.edu.cn" }]
@@ -20,22 +20,21 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
     "Topic :: Security :: Cryptography",
 ]
-dependencies = ["numpy>=2.2.4", "pillow>=11.1.0"]
 dynamic = ["version", "readme"]
 
 [project.urls]
-"Homepage" = "https://github.com/ZhanZiyuan/PixelPuzzle"
-"Bug Tracker" = "https://github.com/ZhanZiyuan/PixelPuzzle/issues"
+"Homepage" = "https://github.com/project-aico/dna"
+"Bug Tracker" = "https://github.com/project-aico/dna/issues"
 
 [project.scripts]
-pixelpuzzle = "pixelpuzzle.__main__:main"
+dna = "dna.__main__:main"
 
 [tool.setuptools]
-packages = ["pixelpuzzle"]
+packages = ["dna"]
 
 [tool.setuptools.dynamic]
-version = { attr = "pixelpuzzle.__version__" }
+version = { attr = "dna.__version__" }
 readme = { file = ["README.md"], content-type = "text/markdown" }

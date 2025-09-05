@@ -38,7 +38,7 @@ jobs:
       id-token: write
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/pixelpuzzle
+      url: https://test.pypi.org/p/dnadsl
 
     steps:
       - name: Retrieve release distributions
@@ -62,7 +62,7 @@ jobs:
       id-token: write
     environment:
       name: pypi
-      url: https://pypi.org/p/pixelpuzzle
+      url: https://pypi.org/p/dnadsl
 
     steps:
       - name: Retrieve release distributions
