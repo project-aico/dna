@@ -1,6 +1,6 @@
 <p align="center">
     <img alt="logo" src="https://github.com/project-aico/dna/raw/main/assets/DNA_small.svg"
-        width="138" />
+        width="150" />
 </p>
 
 # DNA
