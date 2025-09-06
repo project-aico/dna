@@ -23,6 +23,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Bio-Informatics",
     "Topic :: Security :: Cryptography",
 ]
+dependencies = ["PyYAML>=6.0.2"]
 dynamic = ["version", "readme"]
 
 [project.urls]

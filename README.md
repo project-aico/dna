@@ -1,6 +1,6 @@
 <p align="center">
     <img alt="logo" src="https://github.com/project-aico/dna/raw/main/assets/DNA_small.svg"
-        width="150" />
+        width="160" />
 </p>
 
 # DNA
@@ -12,6 +12,9 @@
 [![PyPI - Wheel](https://img.shields.io/pypi/wheel/dnadsl)](https://pypi.org/project/dnadsl/#files)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/dnadsl)](https://pypistats.org/packages/dnadsl)
 [![GitHub License](https://img.shields.io/github/license/project-aico/dna)](https://github.com/project-aico/dna/blob/main/LICENSE)
+
+A domain-specific language
+(transcription between UTF-8 and binary) based on YAML.
 
 ## Installation
 
@@ -29,6 +32,33 @@ pip install .
 ```
 
 as of the repository root folder.
+
+## Usage
+
+Run `dna --help` for help:
+
+```bash
+$ dna --help
+usage: dna [-h] [-i INPUT_FILE] [-o OUTPUT_FILE] [-v] [path]
+
++------------------------------------------+
+|                    DNA                   |
+|        A domain-specific language        |
+| (transcription between UTF-8 and binary) |
+|              based on YAML.              |
++------------------------------------------+
+
+positional arguments:
+  path                  The path of the input YAML file.
+
+options:
+  -h, --help            show this help message and exit
+  -i INPUT_FILE, --input-file INPUT_FILE
+                        The path of the input YAML file.
+  -o OUTPUT_FILE, --output-file OUTPUT_FILE
+                        The path of the output YAML file.
+  -v, --version         Print the version number of dna and exit.
+```
 
 ## Examples
 
