@@ -89,49 +89,53 @@ options:
 
 ## Examples
 
-- [The input UTF-8 text](https://github.com/project-aico/dna/blob/main/examples/input_text.yml):
+- Convert UTF-8 text to DNA bases, e.g., run `dna -m encode -i input_text.yml -o output_bases.yml`:
 
-    ```yaml
-    text_utf8: 😄😊
-    ```
+  - [The input UTF-8 text](https://github.com/project-aico/dna/blob/main/examples/input_text.yml):
 
-- [The output DNA bases](https://github.com/project-aico/dna/blob/main/examples/output_bases.yml):
+      ```yaml
+      text_utf8: 😄😊
+      ```
 
-    ```yaml
-    text_utf8: 😄😊
-    dna:
-    positive_strand:
-        sequence: TTAAGCTTGCGAGACATTAAGCTTGCGAGAGG
-        binary: 11110000 10011111 10011000 10000100 11110000 10011111 10011000 10001010
-        text: 😄😊
-    negative_strand:
-        sequence: AATTCGAACGCTCTGTAATTCGAACGCTCTCC
-        binary: 00001111 01100000 01100111 01111011 00001111 01100000 01100111 01110101
-        text: "\x0F`g{\x0F`gu"
-    ```
+  - [The output DNA bases](https://github.com/project-aico/dna/blob/main/examples/output_bases.yml):
 
-- [The input DNA bases](https://github.com/project-aico/dna/blob/main/examples/input_bases.yml):
+      ```yaml
+      text_utf8: 😄😊
+      dna:
+      positive_strand:
+          sequence: TTAAGCTTGCGAGACATTAAGCTTGCGAGAGG
+          binary: 11110000 10011111 10011000 10000100 11110000 10011111 10011000 10001010
+          text: 😄😊
+      negative_strand:
+          sequence: AATTCGAACGCTCTGTAATTCGAACGCTCTCC
+          binary: 00001111 01100000 01100111 01111011 00001111 01100000 01100111 01110101
+          text: "\x0F`g{\x0F`gu"
+      ```
 
-    ```yaml
-    positive_strand: TGAGGCTCGGCATGTTGTGAGATTTTAAGCTTGCAAGTCG
-    ```
+- Convert DNA bases to UTF-8 text, e.g., run `dna -m decode -i input_bases.yml -o output_text.yml`:
 
-- [The output UTF-8 text](https://github.com/project-aico/dna/blob/main/examples/output_text.yml):
+  - [The input DNA bases](https://github.com/project-aico/dna/blob/main/examples/input_bases.yml):
 
-    ```yaml
-    text_utf8: ❤️🐶
-    dna:
-    positive_strand:
-        sequence: TGAGGCTCGGCATGTTGTGAGATTTTAAGCTTGCAAGTCG
-        binary: 11100010 10011101 10100100 11101111 10111000 10001111 11110000 10011111
-        10010000 10110110
-        text: ❤️🐶
-    negative_strand:
-        sequence: ACTCCGAGCCGTACAACACTCTAAAATTCGAACGTTCAGC
-        binary: 00011101 01100010 01011011 00010000 01000111 01110000 00001111 01100000
-        01101111 01001001
-        text: "\x1Db[\x10Gp\x0F`oI"
-    ```
+      ```yaml
+      positive_strand: TGAGGCTCGGCATGTTGTGAGATTTTAAGCTTGCAAGTCG
+      ```
+
+  - [The output UTF-8 text](https://github.com/project-aico/dna/blob/main/examples/output_text.yml):
+
+      ```yaml
+      text_utf8: ❤️🐶
+      dna:
+      positive_strand:
+          sequence: TGAGGCTCGGCATGTTGTGAGATTTTAAGCTTGCAAGTCG
+          binary: 11100010 10011101 10100100 11101111 10111000 10001111 11110000 10011111
+          10010000 10110110
+          text: ❤️🐶
+      negative_strand:
+          sequence: ACTCCGAGCCGTACAACACTCTAAAATTCGAACGTTCAGC
+          binary: 00011101 01100010 01011011 00010000 01000111 01110000 00001111 01100000
+          01101111 01001001
+          text: "\x1Db[\x10Gp\x0F`oI"
+      ```
 
 ## Packaging
 
