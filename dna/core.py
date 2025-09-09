@@ -72,20 +72,37 @@ def complement_dna(dna_seq: str) -> str:
     return "".join(DNA_COMPLEMENT[base] for base in dna_seq)
 
 
-def utf8_to_dna(input_file: str | Path, output_file: str | Path) -> None:
+def transcode_dna(input_file: str | Path, output_file: str | Path) -> None:
     """
-    Convert the UTF-8 text to strands of DNA.
+    Conversion between UTF-8 text and DNA bases.
     """
-    input_text = load_yaml_file(input_file).get("text_utf8", None)
+    text_utf8 = load_yaml_file(input_file).get("text_utf8", None)
+    dna_positive = load_yaml_file(input_file).get("positive_strand", None)
 
-    dna_positive = binary_to_dna(utf8_to_binary(input_text))
+    if text_utf8 and dna_positive:
+        raise ValueError(
+            "Input YAML cannot contain both 'text_utf8' "
+            "and 'positive_strand'. "
+            "Please provide only one."
+        )
+    elif text_utf8:
+        # encoding mode: UTF-8 to DNA
+        dna_positive = binary_to_dna(utf8_to_binary(text_utf8))
+    elif dna_positive:
+        # decoding mode: DNA to UTF-8
+        text_utf8 = binary_to_utf8(dna_to_binary(dna_positive))
+    else:
+        raise ValueError(
+            "Input YAML must contain either "
+            "'text_utf8' or 'positive_strand'."
+        )
+
     bin_positive = dna_to_binary(dna_positive)
-
     dna_negative = complement_dna(dna_positive)
     bin_negative = dna_to_binary(dna_negative)
 
     output_text = {
-        "text_utf8": input_text,
+        "text_utf8": text_utf8,
         "dna": {
             "positive_strand": {
                 "sequence": dna_positive,
