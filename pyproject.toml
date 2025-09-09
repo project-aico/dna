@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dnadsl"
-description = "DNA: A domain-specific language (transcription between UTF-8 and binary) based on YAML."
+description = "DNA: a domain-specific language (transcription between UTF-8 text and DNA bases) based on YAML."
 requires-python = ">=3.10"
 license = { text = "GNU GPLv3" }
 authors = [{ name = "Zhan Ziyuan", email = "ziyuanzhan@mail.nankai.edu.cn" }]

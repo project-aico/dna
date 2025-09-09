@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 """
-DNA: A domain-specific language
-(transcription between UTF-8 and binary)
+DNA: a domain-specific language
+(transcription between UTF-8 text and DNA bases)
 based on YAML.
 """
 

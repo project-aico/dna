@@ -14,7 +14,33 @@
 [![GitHub License](https://img.shields.io/github/license/project-aico/dna)](https://github.com/project-aico/dna/blob/main/LICENSE)
 
 A domain-specific language
-(transcription between UTF-8 and binary) based on YAML.
+(transcription between UTF-8 text and DNA bases)
+based on YAML.
+
+## Transcoding
+
+Please refer to [coding.py](https://github.com/project-aico/dna/blob/main/dna/coding.py):
+
+```python
+DNA_TO_BIN = {
+    "A": "00",
+    "C": "01",
+    "G": "10",
+    "T": "11"
+}
+
+BIN_TO_DNA = {
+    v: k
+    for k, v in DNA_TO_BIN.items()
+}
+
+DNA_COMPLEMENT = {
+    "A": "T",
+    "T": "A",
+    "C": "G",
+    "G": "C"
+}
+```
 
 ## Installation
 
@@ -39,20 +65,21 @@ Run `dna --help` for help:
 
 ```bash
 $ dna --help
-usage: dna [-h] [-i INPUT_FILE] [-o OUTPUT_FILE] [-v] [path]
+usage: dna [-h] [-m {encode,decode}] [-i INPUT_FILE] [-o OUTPUT_FILE] [-v]
 
-+------------------------------------------+
-|                    DNA                   |
-|        A domain-specific language        |
-| (transcription between UTF-8 and binary) |
-|              based on YAML.              |
-+------------------------------------------+
-
-positional arguments:
-  path                  The path of the input YAML file.
++--------------------------------------------------+
+|                        DNA                       |
+|            A domain-specific language            |
+| (transcription between UTF-8 text and DNA bases) |
+|                  based on YAML.                  |
++--------------------------------------------------+
 
 options:
   -h, --help            show this help message and exit
+  -m {encode,decode}, --mode {encode,decode}
+                        Choose the mode of transcoding.
+                        encode: UTF-8 to bases; decode: bases to UTF-8.
+                        The default is: encode
   -i INPUT_FILE, --input-file INPUT_FILE
                         The path of the input YAML file.
   -o OUTPUT_FILE, --output-file OUTPUT_FILE
@@ -62,13 +89,34 @@ options:
 
 ## Examples
 
-- [The input YAML file](https://github.com/project-aico/dna/blob/main/examples/input.yml):
+- [The input UTF-8 text](https://github.com/project-aico/dna/blob/main/examples/input_text.yml):
 
     ```yaml
-    text_utf8: ❤️🐶
+    text_utf8: 😄😊
     ```
 
-- [The output YAML file](https://github.com/project-aico/dna/blob/main/examples/output.yml):
+- [The output DNA bases](https://github.com/project-aico/dna/blob/main/examples/output_bases.yml):
+
+    ```yaml
+    text_utf8: 😄😊
+    dna:
+    positive_strand:
+        sequence: TTAAGCTTGCGAGACATTAAGCTTGCGAGAGG
+        binary: 11110000 10011111 10011000 10000100 11110000 10011111 10011000 10001010
+        text: 😄😊
+    negative_strand:
+        sequence: AATTCGAACGCTCTGTAATTCGAACGCTCTCC
+        binary: 00001111 01100000 01100111 01111011 00001111 01100000 01100111 01110101
+        text: "\x0F`g{\x0F`gu"
+    ```
+
+- [The input DNA bases](https://github.com/project-aico/dna/blob/main/examples/input_bases.yml):
+
+    ```yaml
+    positive_strand: TGAGGCTCGGCATGTTGTGAGATTTTAAGCTTGCAAGTCG
+    ```
+
+- [The output UTF-8 text](https://github.com/project-aico/dna/blob/main/examples/output_text.yml):
 
     ```yaml
     text_utf8: ❤️🐶
