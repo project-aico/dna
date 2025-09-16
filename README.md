@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="https://github.com/project-aico/dna/raw/main/assets/DNA_small.svg"
+    <img alt="logo" src="https://github.com/project-aico/dna/raw/main/assets/logo.svg"
         width="160" />
 </p>
 
@@ -149,6 +149,11 @@ pyinstaller --name DNA --onefile -p dna dna/__main__.py
 # Package it on Windows
 pyinstaller --name DNA --onefile --icon python.ico -p dna dna/__main__.py
 ```
+
+## Web Applications
+
+Deploy [DNA](https://dnadsl.vercel.app/)
+on [Vercel](https://github.com/vercel/vercel).
 
 ## Copyrights
 
