@@ -11,7 +11,7 @@ import sys
 
 from .core import transcode_dna
 
-__version__ = "0.3.2"
+__version__ = "0.4.0"
 
 
 def main() -> None:
